@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <h:outputStylesheet name="./css/default.css"/>
+        <h:outputStylesheet name="./css/cssLayout.css"/>
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+
+        <div id="top" class="top">
+            <ui:insert name="top">Casos Academicos - Unirversidad de El Salvador</ui:insert>
+        </div>
+
+        <div id="content" class="center_content" align="center">
+            <ui:insert name="content">
+                
+                <f:view>
+                    <h:form>
+                        <h1><h:outputText value="Tipo de Requisito Para Casos Academicos"/></h1>
+                        <h:dataTable value="#{frmTipoRequisito.registro}" var="item">
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="ID"/>
+                                </f:facet>
+                                <h:outputText value="#{item.idTipoRequisito}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Nombre"/>
+                                </f:facet>
+                                <h:outputText value="#{item.nombre}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Activo"/>
+                                </f:facet>
+                                <h:outputText value="#{item.activo?'Activo':'Inactivo'}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Observacion"/>
+                                </f:facet>
+                                <h:outputText value="#{item.observacion}"/>
+                            </h:column>
+                        </h:dataTable>
+                    </h:form>                                                         
+                </f:view>      
+            </ui:insert>
+             <h:form>
+            <h:panelGrid columns="2" bgcolor="white">
+                
+           
+                <h:outputLabel value="Nombre"  />
+                <h:inputText required="true" />
+                <h:outputLabel value="Observacion" />
+                <h:inputText required="true" />
+                
+                        
+                        
+                
+                
+            </h:panelGrid>
+             </h:form>  
+                
+        </div>
+
+    </h:body>
+
+</html>

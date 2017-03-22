@@ -30,6 +30,16 @@ public class FrmTipoRequisito implements Serializable {
     private TipoRequisitoFacadeLocal tipoF;
     
     private List<TipoRequisito> registro;
+    private TipoRequisito cRegistro;
+
+    public TipoRequisito getcRegistro() {
+        return cRegistro;
+    }
+
+    public void setcRegistro(TipoRequisito cRegistro) {
+        this.cRegistro = cRegistro;
+    }
+    
 
     @PostConstruct
     public void init(){
