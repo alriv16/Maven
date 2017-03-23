@@ -15,12 +15,14 @@
     <h:body>
 
         <div id="top" class="top">
-            <ui:insert name="top">Casos Academicos - Unirversidad de El Salvador</ui:insert>
+            <ui:insert name="top">
+                Gestión de Casos Academicos - Universidad de El Salvador
+            </ui:insert>
         </div>
 
         <div id="content" class="center_content" align="center">
+            
             <ui:insert name="content">
-                
                 <f:view>
                     <h:form>
                         <h1><h:outputText value="Tipo de Requisito Para Casos Academicos"/></h1>
@@ -61,20 +63,25 @@
             </ui:insert>
              <h:form id="frmTipoRequisito">
             <h:panelGrid columns="2" bgcolor="white">
-                <h:outputLabel value="nombre"  />
-                <h:inputText required="true" value="#{frmTipoRequisito.art.nombre}" />
+                <h:outputLabel value="ID"/>
+                <h:inputText value="#{frmTipoRequisito.selected.idTipoRequisito}" readonly="true"/>
+                <h:outputLabel value="Nombre"/>
+                <h:inputText required="true" value="#{frmTipoRequisito.selected.nombre}"/>
+                <h:outputLabel value="Estado"/>
+                <h:inputText value="#{frmTipoRequisito.selected.activo?'Activo':'Inactivo'}" readonly="true"/>
                 <h:outputLabel value="Observacion" />
-                <h:inputText required="true" value="#{frmTipoRequisito.art.observacion}" />
-                 
+                <h:inputText required="true" value="#{frmTipoRequisito.selected.observacion}" />
+                
             </h:panelGrid>
              </h:form>  
             <h:form id="frmControles">
                 <h:panelGrid columns="2">
-                    <h:commandButton value="Nuevo" />
-                    <h:commandButton value="Guardar" actionListener="#{frmTipoRequisito.guardarTipoRequisito}"/>    
+                    <h:commandButton value="Guardar" action="#{frmTipoRequisito.crearTipoRequisito()}" type="submit"/>
+                <h:commandButton value="Nuevo" action="#{frmTipoRequisito.prepareCreate()}"/>        
+                        
                 </h:panelGrid> 
             </h:form>
-                
+                   
         </div>
 
     </h:body>

@@ -13,7 +13,6 @@ import javax.faces.event.ActionEvent;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import tpi.CasosAcad.EntidadesMvn.TipoRequisito;
-import tpi.CasosAcad.Sesiones.TipoRequisitoFacade;
 import tpi.CasosAcad.Sesiones.TipoRequisitoFacadeLocal;
 
 /**
@@ -27,42 +26,11 @@ public class FrmTipoRequisito implements Serializable {
     /**
      * Creates a new instance of FrmTipoRequisito
      */
+    private TipoRequisito actual;
+    
     @EJB
     private TipoRequisitoFacadeLocal tipoF;
-    
-    private List<TipoRequisito> registro;
-    private TipoRequisito objeto;
 
-    public TipoRequisito getObjeto() {
-        return objeto;
-    }
-
-    public void setObjeto(TipoRequisito objeto) {
-        this.objeto = objeto;
-    }
-
-  
-    
-    
-    @PostConstruct
-    public void init(){
-    
-    try{
-        
-        this.registro=tipoF.findAll();
-        
-        getArt();
-        
-        
-    }catch(Exception e){
-    
-    }
-    
-    }
-    
-    
-
-    
     public TipoRequisitoFacadeLocal getTipoF() {
         return tipoF;
     }
@@ -70,7 +38,8 @@ public class FrmTipoRequisito implements Serializable {
     public void setTipoF(TipoRequisitoFacadeLocal tipoF) {
         this.tipoF = tipoF;
     }
-
+    private List<TipoRequisito> registro;
+   
     public List<TipoRequisito> getRegistro() {
         return registro;
     }
@@ -78,44 +47,52 @@ public class FrmTipoRequisito implements Serializable {
     public void setRegistro(List<TipoRequisito> registro) {
         this.registro = registro;
     }
+        
     
-    public FrmTipoRequisito() {
-        
-        
-        
+    public TipoRequisito getSelected(){
+    
+          actual= new TipoRequisito();
+          actual.setActivo(true);
+          
+          return actual;
     }
     
+    public String prepareCreate(){
+    
+       actual= new TipoRequisito();
+       actual.setActivo(true);
+       return "preparado";    
+    }
+    
+    @PostConstruct
+    public void init(){
+    try{
+        
+        this.registro=tipoF.findAll();
+             
+    }catch(Exception e){
+    
+    }
+    }
 
-    /*public void nuevoTipoRequisito(ActionEvent ae){
+    public String crearTipoRequisito(){
     
     try{
        
-         this.objeto= new TipoRequisito();
-         this.objeto.setActivo(true);                          
+        getTipoF().create(actual);
+        return prepareCreate();
+        
         
     }catch(Exception e){
-       
-        System.err.println("AQUI!"+e);
+    return null;
     }
-        
-    }    */
-    
-    public TipoRequisito getArt(){
-    
-       objeto= new TipoRequisito();
-       objeto.setActivo(true);
-       return objeto;
-    
     
     
     }
     
     
-    public void guardarTipoRequisito(ActionEvent ae){
-    
-        tipoF.create(objeto);
-    
+    public FrmTipoRequisito() {        
     }
-
     
+   
 }

@@ -6,7 +6,12 @@
 package tpi.CasosAcad.Sesiones;
 
 import java.util.List;
+import javax.faces.validator.Validator;
 import javax.persistence.EntityManager;
+import javax.validation.ConstraintViolation;
+import javax.validation.Valid;
+import javax.validation.Validation;
+import javax.validation.ValidatorFactory;
 
 /**
  *
@@ -39,9 +44,11 @@ public abstract class AbstractFacade<T> {
     }
 
     public List<T> findAll() {
+
         javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
         cq.select(cq.from(entityClass));
         return getEntityManager().createQuery(cq).getResultList();
+                
     }
 
     public List<T> findRange(int[] range) {
