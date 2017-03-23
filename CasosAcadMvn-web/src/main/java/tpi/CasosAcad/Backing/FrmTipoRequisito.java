@@ -31,15 +31,18 @@ public class FrmTipoRequisito implements Serializable {
     private TipoRequisitoFacadeLocal tipoF;
     
     private List<TipoRequisito> registro;
-    private TipoRequisito cRegistro;
+    private TipoRequisito objeto;
 
-    public TipoRequisito getcRegistro() {
-        return cRegistro;
+    public TipoRequisito getObjeto() {
+        return objeto;
     }
 
-    public void setcRegistro(TipoRequisito cRegistro) {
-        this.cRegistro = cRegistro;
+    public void setObjeto(TipoRequisito objeto) {
+        this.objeto = objeto;
     }
+
+  
+    
     
     @PostConstruct
     public void init(){
@@ -53,6 +56,9 @@ public class FrmTipoRequisito implements Serializable {
     }
     
     }
+    
+    
+
     
     public TipoRequisitoFacadeLocal getTipoF() {
         return tipoF;
@@ -73,26 +79,26 @@ public class FrmTipoRequisito implements Serializable {
     public FrmTipoRequisito() {
     }
     
+
+    public void nuevoTipoRequisito(ActionEvent ae){
     
-    public void crearNuevoHandler(ActionEvent ae){
-    this.crearNuevo();
+    try{
+       
+    //   this.objeto= new TipoRequisito();
+      // this.objeto.setActivo(true);                          
+        
+    }catch(Exception e){
+       
+        System.err.println("AQUI!"+e);
+    }
+        
+    }    
     
+    public void guardarTipoRequisito(ActionEvent ae){
+    
+    //tipoF.create(objeto);
     
     }
-    
-    public TipoRequisito crearNuevo(){
-    this.cRegistro= new TipoRequisito();
-    this.cRegistro.setActivo(true);
-    
-    return this.cRegistro;
-    }
-    
-    public void guardarTipoRequisito(){
-        
-        
-        this.tipoF.create(cRegistro);
-        
-        
-    }
+
     
 }

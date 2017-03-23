@@ -49,6 +49,12 @@
                                 </f:facet>
                                 <h:outputText value="#{item.observacion}"/>
                             </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Opción"/>
+                                </f:facet>
+                                <h:commandButton value="Borrar" />
+                            </h:column>
                         </h:dataTable>
                     </h:form>                                                         
                 </f:view>      
@@ -56,14 +62,14 @@
              <h:form id="frmTipoRequisito">
             <h:panelGrid columns="2" bgcolor="white">
                 <h:outputLabel value="nombre"  />
-                <h:inputText required="true"  />
+                <h:inputText required="true" value="#{frmTipoRequisito.objeto.nombre}" />
                 <h:outputLabel value="Observacion" />
-                <h:inputText required="true" />     
+                <h:inputText required="true" value="#{frmTipoRequisito.objeto.observacion}" />     
             </h:panelGrid>
              </h:form>  
             <h:form id="frmControles">
                 <h:panelGrid columns="2">
-                    <h:commandButton value="Nuevo" actionListener="#{frmTipoRequisito.crearNuevoHandler}"/>
+                    <h:commandButton value="Nuevo" actionListener="#{frmTipoRequisito.nuevoTipoRequisito}"/>
                     <h:commandButton value="Guardar" actionListener="#{frmTipoRequisito.guardarTipoRequisito}"/>
                 </h:panelGrid> 
             </h:form>
