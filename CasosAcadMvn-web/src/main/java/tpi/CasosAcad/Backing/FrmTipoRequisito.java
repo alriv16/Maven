@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.faces.event.ActionEvent;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
 import tpi.CasosAcad.EntidadesMvn.TipoRequisito;
@@ -40,7 +41,6 @@ public class FrmTipoRequisito implements Serializable {
         this.cRegistro = cRegistro;
     }
     
-
     @PostConstruct
     public void init(){
     
@@ -53,8 +53,6 @@ public class FrmTipoRequisito implements Serializable {
     }
     
     }
-    
-    
     
     public TipoRequisitoFacadeLocal getTipoF() {
         return tipoF;
@@ -76,5 +74,25 @@ public class FrmTipoRequisito implements Serializable {
     }
     
     
+    public void crearNuevoHandler(ActionEvent ae){
+    this.crearNuevo();
+    
+    
+    }
+    
+    public TipoRequisito crearNuevo(){
+    this.cRegistro= new TipoRequisito();
+    this.cRegistro.setActivo(true);
+    
+    return this.cRegistro;
+    }
+    
+    public void guardarTipoRequisito(){
+        
+        
+        this.tipoF.create(cRegistro);
+        
+        
+    }
     
 }

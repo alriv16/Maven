@@ -53,21 +53,20 @@
                     </h:form>                                                         
                 </f:view>      
             </ui:insert>
-             <h:form>
+             <h:form id="frmTipoRequisito">
             <h:panelGrid columns="2" bgcolor="white">
-                
-           
-                <h:outputLabel value="Nombre"  />
-                <h:inputText required="true" />
+                <h:outputLabel value="nombre"  />
+                <h:inputText required="true"  />
                 <h:outputLabel value="Observacion" />
-                <h:inputText required="true" />
-                
-                        
-                        
-                
-                
+                <h:inputText required="true" />     
             </h:panelGrid>
              </h:form>  
+            <h:form id="frmControles">
+                <h:panelGrid columns="2">
+                    <h:commandButton value="Nuevo" actionListener="#{frmTipoRequisito.crearNuevoHandler}"/>
+                    <h:commandButton value="Guardar" actionListener="#{frmTipoRequisito.guardarTipoRequisito}"/>
+                </h:panelGrid> 
+            </h:form>
                 
         </div>
 
