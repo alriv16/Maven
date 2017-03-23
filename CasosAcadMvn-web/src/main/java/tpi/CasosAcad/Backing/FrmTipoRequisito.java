@@ -51,6 +51,9 @@ public class FrmTipoRequisito implements Serializable {
         
         this.registro=tipoF.findAll();
         
+        getArt();
+        
+        
     }catch(Exception e){
     
     }
@@ -77,26 +80,40 @@ public class FrmTipoRequisito implements Serializable {
     }
     
     public FrmTipoRequisito() {
+        
+        
+        
     }
     
 
-    public void nuevoTipoRequisito(ActionEvent ae){
+    /*public void nuevoTipoRequisito(ActionEvent ae){
     
     try{
        
-    //   this.objeto= new TipoRequisito();
-      // this.objeto.setActivo(true);                          
+         this.objeto= new TipoRequisito();
+         this.objeto.setActivo(true);                          
         
     }catch(Exception e){
        
         System.err.println("AQUI!"+e);
     }
         
-    }    
+    }    */
+    
+    public TipoRequisito getArt(){
+    
+       objeto= new TipoRequisito();
+       objeto.setActivo(true);
+       return objeto;
+    
+    
+    
+    }
+    
     
     public void guardarTipoRequisito(ActionEvent ae){
     
-    //tipoF.create(objeto);
+        tipoF.create(objeto);
     
     }
 
