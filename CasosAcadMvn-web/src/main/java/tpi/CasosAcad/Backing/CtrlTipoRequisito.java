@@ -55,7 +55,7 @@ public class CtrlTipoRequisito implements Serializable {
 public String add(){
 this.tipoRequisitoFacade.create(this.tr);
 this.tr=new TipoRequisito();
-return "trP";
+return "tRequisito";
 
 }
 public void borrar(TipoRequisito tr){
@@ -66,12 +66,12 @@ this.tipoRequisitoFacade.remove(tr);
 public String editar(TipoRequisito tr) {
 
     this.tr= tr;
-    return "edittr";
+    return "editarTipoRequisito";
 }
 public String editar() {
 
     this.tipoRequisitoFacade.edit(this.tr);
-    return "trP";
+    return "tRequisito";
 }
 
     

@@ -18,15 +18,21 @@
             <ui:insert name="top">Top</ui:insert>
         </div>
         <div>
-            <div id="left">
+         <!--   <div id="left">
                 <ui:insert name="left">Left</ui:insert>
-            </div>
+            </div>-->
             <div>
-                <div id="right">
-                    <ui:insert name="right">Right</ui:insert>
+                <div id="right" style="color:whitesmoke">
+                    <ui:insert name="right">
+                          <h:form>
+                              <h:panelGrid bgcolor="white">
+                       <h:commandButton action="agregarTipoRequisito" value="AGREGAR"/> 
+                              </h:panelGrid>
+                </h:form>
+               </ui:insert>
                 </div>
-                <div id="content" class="right_content">
-                    <ui:insert name="content">Tabla que muestra
+                <div id="content" class="right_content" align="center">
+                    <ui:insert name="content">
                         <f:view>
 
 
@@ -35,27 +41,41 @@
                                 <h:dataTable value="#{ctrlTipoRequisito.findAll()}" var="item">
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="IdTipoRequisito"/>
+                                            <h:outputText value="ID"/>
                                         </f:facet>
                                         <h:outputText value="#{item.idTipoRequisito}"/>
+                                        <br/>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
                                             <h:outputText value="Nombre"/>
                                         </f:facet>
                                         <h:outputText value="#{item.nombre}"/>
+                                        <br/>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
-                                            <h:outputText value="Activo"/>
+                                            <h:outputText value="Estado"/>
                                         </f:facet>
-                                        <h:outputText value="#{item.activo}"/>
+                                        <h:outputText value="#{item.activo?'Activo':'Inactivo'}"/>
+                                        <br/>
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">
                                             <h:outputText value="Observacion"/>
                                         </f:facet>
                                         <h:outputText value="#{item.observacion}"/>
+                                        <br/>
+                                    </h:column>
+                                    <h:column>
+                                        <f:facet name="header">Opcion</f:facet>
+                                        <h:commandButton value="BORRAR" action="#{ctrlTipoRequisito.borrar(item)}" onclick="return confirm('Se borrará el registro seleccionado ¿Continuar?')"></h:commandButton>
+                                        <br/>
+                                    </h:column>       
+                                    <h:column>
+                                        <f:facet name="header">Editar</f:facet>
+                                        <h:commandButton value="EDITAR" action="#{ctrlTipoRequisito.editar(item)}" ></h:commandButton>
+                                        <br/>
                                     </h:column>
                                 </h:dataTable>
                             </h:form>
@@ -65,7 +85,10 @@
             </div>
         </div>
         <div id="bottom">
-            <ui:insert name="bottom">Bottom</ui:insert>
+            <ui:insert name="bottom">
+                
+                
+            </ui:insert>
         </div>
 
     </h:body>
