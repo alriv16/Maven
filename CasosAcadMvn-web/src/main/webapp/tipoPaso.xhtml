@@ -20,27 +20,6 @@
 
         <div id="content" class="center_content">
             <ui:insert name="content">
-                <f:view>
-                    <h:form>
-                        <h1><h:outputText value="Tipos de Paso para Casos Academicos "/></h1>
-                        <h:dataTable value="#{frmTipoPaso.tipoPaso}" var="item">
-                            <h:column>
-                                <f:facet name="header">
-                                    <h:outputText value="ID"/>
-                                </f:facet>
-                                <h:outputText value="#{item.idTipoPaso}"/>
-                            </h:column>
-                            <h:column>
-                                <f:facet name="header">
-                                    <h:outputText value="Paso"/>
-                                </f:facet>
-                                <h:outputText value="#{item.paso}"/>
-                            </h:column>
-                        </h:dataTable>
-                    </h:form>
-                </f:view>
-                
-                
                 
                 
             </ui:insert>
