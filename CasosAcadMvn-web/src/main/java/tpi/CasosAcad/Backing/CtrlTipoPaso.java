@@ -6,7 +6,9 @@
 package tpi.CasosAcad.Backing;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.faces.view.ViewScoped;
@@ -50,20 +52,36 @@ public class CtrlTipoPaso implements Serializable {
     }
 
     public List<TipoPaso> findAll() {
+        try{
         return this.tipoPasoFacade.findAll();
-
+        }catch(Exception e){
+        
+        Logger.getLogger(CtrlTipoPaso.class.getName());}
+        return new ArrayList<>();
     }
 
     public String add() {
+        try{
+        
         this.tipoPasoFacade.create(this.tp);
         this.tp = new TipoPaso();
         return "tPaso";
-
+        }catch(Exception e){
+        
+        Logger.getLogger(CtrlTipoPaso.class.getName());
+        return null;
+        }
+          
     }
+   
 
     public void borrar(TipoPaso tp) {
+        try{
         this.tipoPasoFacade.remove(tp);
-
+        }catch(Exception e){
+        Logger.getLogger(CtrlTipoPaso.class.getName());
+        
+        }
     }
 
     public String editar(TipoPaso tp) {
