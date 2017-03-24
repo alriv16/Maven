@@ -27,7 +27,7 @@
                     <h:outputLabel value="Nombre:" for="nombre" />
                     <h:inputText id="nombre" value="#{ctrlTipoRequisito.tr.nombre}" title="Nombre" required="true" requiredMessage="Nombre es requerido."/>
                     <h:outputLabel value="Activo:" for="activo" />
-                    <h:inputText id="activo" value="#{ctrlTipoRequisito.tr.activo}" title="Activo" required="true" requiredMessage="activo es requerido."/>
+                    <h:selectOneMenu id="activo" value="#{ctrlTipoRequisito.tr.activo}" title="Activo" required="true" requiredMessage="activo es requerido."/>
                     <h:outputLabel value="Observacion:" for="observacion" />
                     <h:inputText id="observacion" value="#{ctrlTipoRequisito.tr.observacion}" title="Observacion" required="true" requiredMessage="observaciones es requirido."/>
                     <h:commandButton value="Guardar" action="#{ctrlTipoRequisito.editar()}"></h:commandButton>
