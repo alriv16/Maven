@@ -5,7 +5,10 @@
  */
 package tpi.CasosAcad.Sesiones;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.validator.Validator;
 import javax.persistence.EntityManager;
 import javax.validation.ConstraintViolation;
@@ -44,11 +47,19 @@ public abstract class AbstractFacade<T> {
     }
 
     public List<T> findAll() {
-
+        try{ 
+            if(getEntityManager()!=null){
         javax.persistence.criteria.CriteriaQuery cq = getEntityManager().getCriteriaBuilder().createQuery();
         cq.select(cq.from(entityClass));
         return getEntityManager().createQuery(cq).getResultList();
-                
+        }
+        }catch(Exception e){
+          //return new ArrayList<>();
+        Logger.getLogger(getClass().getName()).log(Level.SEVERE,e.getMessage(),e);
+        
+        }     
+       return null;
+        
     }
 
     public List<T> findRange(int[] range) {

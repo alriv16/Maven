@@ -5,29 +5,17 @@
                 xmlns:f="http://xmlns.jcp.org/jsf/core"
                 xmlns:h="http://xmlns.jcp.org/jsf/html">
 
-    <ui:define name="top">
-        top
-    </ui:define>
-
-    <ui:define name="right">
-        right
-    </ui:define>
-
-    <ui:define name="content">
-        content
-    </ui:define>
-
     <ui:define name="bottom">
         <f:view>
             <h:form>
                 <h1><h:outputText value="Editar"/></h1>
                 <h:panelGrid columns="2">
                     <h:outputLabel value="IdTipoRequisito:" for="idTipoRequisito" />
-                    <h:inputText id="idTipoRequisito" readonly="true" value="#{ctrlTipoRequisito.tr.idTipoRequisito}" title="IdTipoRequisito" required="true" requiredMessage="ID tipo requisito es requerido."/>
+                    <h:inputText id="idTipoRequisito" readonly="false" value="#{ctrlTipoRequisito.tr.idTipoRequisito}" title="IdTipoRequisito" required="true" requiredMessage="ID tipo requisito es requerido."/>
                     <h:outputLabel value="Nombre:" for="nombre" />
                     <h:inputText id="nombre" value="#{ctrlTipoRequisito.tr.nombre}" title="Nombre" required="true" requiredMessage="Nombre es requerido."/>
                     <h:outputLabel value="Activo:" for="activo" />
-                    <h:selectOneMenu id="activo" value="#{ctrlTipoRequisito.tr.activo}" title="Activo" required="true" requiredMessage="activo es requerido."/>
+                    <h:inputText id="activo" value="#{ctrlTipoRequisito.tr.activo}" title="Activo" required="true" requiredMessage="activo es requerido."/>
                     <h:outputLabel value="Observacion:" for="observacion" />
                     <h:inputText id="observacion" value="#{ctrlTipoRequisito.tr.observacion}" title="Observacion" required="true" requiredMessage="observaciones es requirido."/>
                     <h:commandButton value="Guardar" action="#{ctrlTipoRequisito.editar()}"></h:commandButton>

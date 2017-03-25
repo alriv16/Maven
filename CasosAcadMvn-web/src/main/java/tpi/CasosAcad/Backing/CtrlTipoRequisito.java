@@ -35,10 +35,12 @@ public class CtrlTipoRequisito implements Serializable {
 
     public TipoRequisito getTr() {
         return tr;
+        
     }
 
     public void setTr(TipoRequisito tr) {
         this.tr = tr;
+        tr.setActivo(true);
     }
     private TipoRequisito tr = new TipoRequisito();
     
@@ -66,7 +68,8 @@ this.tipoRequisitoFacade.remove(tr);
 public String editar(TipoRequisito tr) {
 
     this.tr= tr;
-    return "editarTipoRequisito";
+   // this.editar();
+   return "editarTipoRequisito";
 }
 public String editar() {
 
