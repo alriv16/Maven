@@ -15,8 +15,12 @@
     <h:body>
 
         <div id="top">
-            <ui:insert name="top">
-                <h2>Gestion Casos Academicos - Universidad de El Salvador </h2>
+            <ui:insert name="top">        
+                <h2><div align="right"> <img src="resources/img/Escudo_de_la_Universidad_de_El_Salvador.svg.png" width="60" height="70" alt="Escudo_de_la_Universidad_de_El_Salvador.svg"/>
+                </div>
+                    Gestion Casos Academicos - Universidad de El Salvador 
+                </h2>
+                
             </ui:insert>
         </div>
         <div>
@@ -38,7 +42,7 @@
                      <f:view>
                             <h:form>
                                 <h1><h:outputText value="Tipos de Requisito de Casos Academicos"/></h1>
-                                <h:dataTable value="#{ctrlTipoRequisito.findAll()}" var="item">
+                                <h:dataTable value="#{ctrlTipoRequisito.findAll()}" var="item" style="width:100%">
                                     <h:column>
                                         <f:facet name="header">
                                             <h:outputText value="ID"/>
@@ -69,7 +73,7 @@
                                     </h:column>
                                     <h:column>
                                         <f:facet name="header">Opcion</f:facet>
-                                        <h:commandButton value="BORRAR" action="#{ctrlTipoRequisito.borrar(item)}" onclick="return confirm('Se borrará el registro seleccionado ¿Continuar?')"></h:commandButton>
+                                        <h:commandButton value="BORRAR" action="#{ctrlTipoRequisito.borrar(item)}" onclick="return confirm('Se borrará el registro seleccionado ¿Continuar?')" ></h:commandButton>
                                         <br/>
                                     </h:column>       
                                     <h:column>
